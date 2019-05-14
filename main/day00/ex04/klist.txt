@@ -1,3 +1,0 @@
-Mar 26 10:03:12 2019  Mar 26 20:03:12 2019  krbtgt/42.US.ORG@42.US.ORG
-Mar 26 10:03:12 2019  Mar 26 20:03:12 2019  ldap/ldap-master.42.us.org@42.US.ORG
-Mar 26 12:25:26 2019  Mar 26 20:03:12 2019  host/vgs-fn1.42.us.org@42.US.ORG

@@ -1,2 +1,0 @@
-#!/bin/sh
-echo \( groups $FT_USER | tr " " "," \) -n
