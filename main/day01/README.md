@@ -1,2 +1,2 @@
-![alt text](day01.png | width=300)
+![alt text](day01.png|width=300)
 
