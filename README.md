@@ -1,11 +1,9 @@
-# 42_school
+# 42 School Piscine Files
 
-------------------------------------------
+## Hello dear Pisciner!
+This is an ongoing project. So far I have just dumped all my piscine files as they are.
+I will be updating this project during my free time.
 
-This is my frist repository on GitHub.
-I tried to collect all files and documents from my time at the Piscine C.
+I have collected most of the PDF documents, so you can read them and prepare as to what to expect during your time here.
 
-Feel free to use it and look at the code. Not all the solutions are correct.
-This is for reference only.
-
--------------------------------------------
+## Getting started
