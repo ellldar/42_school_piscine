@@ -11,3 +11,5 @@ There are three sections to this repository
 * **Docs**  - This section contains most of the PDF files for days, rushes `(group projects)` and individual projects
 * **Exams** - This section is organized so that for each exam you would have all the questions in a separate folder. Each folder will have the subject, the trace (the log) and the source code `C file`
 * **main**  - This was my working folder where I kept all my source code
+
+More to come soon!
