@@ -1,0 +1,9 @@
+._*
+*.swp
+.DS*
+.nfs*
+.idea
+*.o
+a.out*
+*.c~
+*.dSYM

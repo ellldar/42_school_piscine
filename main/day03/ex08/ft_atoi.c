@@ -3,34 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skuntoji <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: esupatae <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/25 12:15:02 by skuntoji          #+#    #+#             */
-/*   Updated: 2018/06/26 15:49:13 by skuntoji         ###   ########.fr       */
+/*   Created: 2019/03/29 23:03:12 by esupatae          #+#    #+#             */
+/*   Updated: 2019/03/29 23:03:19 by esupatae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int nb;
-	int isneg;
+	int	n;
+	int	result;
+	int	is_negative;
 
-	i = 0;
-	nb = 0;
-	isneg = 0;
-	while (str[i] >= 0 && str[i] <= 32)
-		i++;
-	if (str[i] == '-')
-		isneg = 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	n = 0;
+	result = 0;
+	is_negative = 1;
+	while (str[n] != '\0')
 	{
-		nb = 10 * nb + (str[i] - '0');
-		i++;
+		if (str[n] >= '0' && str[n] <= '9')
+		{
+			result = (result * 10 + str[n]) - 48;
+		}
+		else if (str[n] != ' ' && str[n] != '-')
+		{
+			break ;
+		}
+		else if (str[n] == '-')
+		{
+			is_negative = -1;
+		}
+		n++;
 	}
-	if (isneg == 1)
-		return (-nb);
-	return (nb);
+	return (result * is_negative);
 }

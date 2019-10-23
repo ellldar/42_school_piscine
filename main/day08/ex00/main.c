@@ -17,7 +17,7 @@ int		is_whitespace(char c);
 int		count_words(char *str);
 void	create_addrs(char *str, int **addr);
 int		calc_size(int **addr, int nbw);
-void	write_words(int **addr, int nbw);
+char	**write_words(int **addr, int nbw, char *str);
 
 int		is_whitespace(char c)
 {
@@ -52,25 +52,25 @@ void	create_addrs(char *str, int **addr)
 {
 	int i;
 	int j;
+	int w;
 
 	i = 0;
 	j = 0;
-	printf("Inside create addrs\n");
+	w = 0;
 	while (str[i])
 	{
 		if (!is_whitespace(str[i]))
 		{
-		    printf("char - %c\n", str[i]);
 			j = i;
 			while (!is_whitespace(str[j]) && str[j])
 				j++;
-//			**addr++ = i;
-//			**addr = j;
-			printf("(%i, %i)\n", i, j);
-			addr++;
+			addr[w] = (int*)(malloc(sizeof(int) * 2));
+			addr[w][0] = i;
+			addr[w][1] = j; 
+			w++;
 			i = j;
 		}
-		i++;		
+		i++;	
 	}
 }
 
@@ -89,41 +89,69 @@ int		calc_size(int **addr, int nbw)
 	return (size);
 }
 
-void	write_words(int **addr, int nbw)
+char	*extract_word(char *str, int start, int end)
 {
-	char *word;
-	char **word_arr;
+	int	i;
+	char *temp;
 
-	printf("%i\n", calc_size(addr, nbw));
-	//word_arr = (char**)(malloc(sizeof(char*) * calc_size(addr, nbw)));
+	i = start;
+	temp = (char*)(malloc(sizeof(char) * (end - start + 2)));
+	while (i <= end)
+	{
+		temp[i - start] = str[i];
+		i++;
+	}
+	temp[i] = '\0';
+	return (temp);
+}	
+
+char	**write_words(int **addr, int nbw, char *str)
+{
+	char 	**wordarr;
+	int		size;
+	int		i;
+
+	size = calc_size(addr, nbw);
+	wordarr = (char**)(malloc(sizeof(char*) * (size + 1)));
+	i = 0;
+	while (i < nbw)
+	{
+		wordarr[i] = (char*)(malloc(sizeof(char) * (addr[i][1] - addr[i][0] + 2)));
+		wordarr[i] = extract_word(str, addr[i][0], addr[i][1]);
+		i++;
+	}
+	wordarr[i] = 0;
+	return (wordarr);
 }
 
 char	**ft_split_whitespaces(char *str)
 {
-	int *pair;
-	int	**addr;
-	int	words;
-	int size;
+	int		**addr;
+	int		words;
+	int 	size;
+	char	**arr;
 
 	words = count_words(str);
-	pair = (int*)(malloc(sizeof(int) * 2));
-	addr = (int**)(malloc(sizeof(int*) * words));
-	printf("Before create addresses\n");
-	printf("Size of pair - %li\n", sizeof(pair));
-	printf("Size of addr - %li\n", sizeof(addr));
+	addr = (int**)(malloc(sizeof(int*) * (words * 2 + 1)));
 	create_addrs(str, addr);
-	printf("After create addresses\n");
-	return (NULL);
+	arr = write_words(addr, words, str);
+	return (arr);
 }
 
 int		main(void)
 {
 	char *str;
 	char **str_arr;
+	int i;
 
-	str = "Hi my name Eldar";
+	str = "Hi   my   name Eldar Supataev\t and i love tits  ";
 	str_arr = ft_split_whitespaces(str);
-	printf("%i\n", count_words(str));
+	i = 0;
+	while (i < count_words(str))
+	{
+		printf("%s\n", str_arr[i]);
+		i++;
+	}
 	return (0);
 }
 
