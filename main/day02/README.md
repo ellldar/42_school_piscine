@@ -16,6 +16,6 @@
   
 ### How did I do?
 
-<img src='screenshot.png' alt='Day02 Score Sheet' width='700'/>
+<img src='screenshot.png' alt='Day02 Score Sheet' width='100%'/>
 
 My score was `35/100`
