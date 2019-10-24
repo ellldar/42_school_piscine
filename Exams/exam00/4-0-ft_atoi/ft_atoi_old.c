@@ -3,45 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esupatae <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 21:23:13 by esupatae          #+#    #+#             */
-/*   Updated: 2019/09/30 21:23:15 by esupatae         ###   ########.fr       */
+/*   Created: 2019/03/29 19:15:22 by exam              #+#    #+#             */
+/*   Updated: 2019/03/29 21:11:26 by exam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	is_ok_char(char c)
-{
-	static int	chrs[] = {0, 9, 10, 11, 12, 13, 32};
-	int			i;
-	int			is_ok;
-
-	i = 0;
-	is_ok = 0;
-	while (i < 7)
-	{
-		if (c == (char)chrs[i])
-			is_ok = 1;
-		i++;
-	}
-	return (is_ok);
-}
-
-int			ft_atoi(const char *str)
-{
+int	ft_atoi(const char *str)
+{	
+	int	n;
 	int	result;
 	int	is_negative;
 
+	n = 0;
 	result = 0;
 	is_negative = 1;
-	while (is_ok_char(*str))
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			is_negative = -1;
-	while (*str >= '0' && *str <= '9')
-		result = (result * 10) + (*str++ - 48);
+	if (str[0] == '-')
+	{
+		n++;
+		is_negative = -1;
+	}
+	while (str[n] != '\0')
+	{
+		if (str[n] >= '0' && str[n] <= '9')
+		{
+			result = (result * 10 + str[n]) - 48;
+			printf("%d,", result);
+		}
+		else if (str[n] == '.' || str[n] == ',' || str[n] == ' ')
+		{
+			break;
+		}
+		else
+		{
+			result = 0;
+			break;
+		}
+		n++;
+	}
 	return (result * is_negative);
 }
+
