@@ -11,6 +11,8 @@
 	Ex 07 : r_dwssap
 	Ex 08 : add_chelou
 
-### Who did I do?
+### How did I do?
 
 <img src='screenshot.png' alt='Day01 Score Sheet' width='700'/>
+
+My score was `80/100`
