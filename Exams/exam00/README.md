@@ -1,5 +1,7 @@
 ## EXAM 00 Questions
 
+On my first exam, I reached to Level 4. These are the questions I got during the exam.
+
 ### How did I do?
 
 ```
