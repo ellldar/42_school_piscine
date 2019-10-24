@@ -23,9 +23,7 @@ int	ft_getlen(char *str)
 
 	len = 0;
 	while (str[len] != '\0')
-	{
 		len++;
-	}
 	return (len);
 }
 
@@ -41,13 +39,9 @@ int	main(void)
 	while (pos >= 0)
 	{
 		if (pos % 2 == 0)
-		{
 			ft_putchar(upper[pos]);
-		}
 		else
-		{
 			ft_putchar(lower[pos]);
-		}
 		pos--;
 	}	
 	ft_putchar('\n');
